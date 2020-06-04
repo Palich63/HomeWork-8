@@ -3,10 +3,7 @@ package ru.netology.manager;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.FlightOffer;
 
-import java.lang.reflect.Field;
-import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class FlightOfferManagerTest {
 
@@ -40,7 +37,7 @@ class FlightOfferManagerTest {
         assertArrayEquals(actual, expected);
     }
 
-//Тест когда ни один элемент не удовлетворяет критерию поиска.
+    //Тест когда ни один элемент не удовлетворяет критерию поиска.
     @Test
     void shouldSearchNothingFlight() {
         flightOfferManager.flightAdd(ticket2);
