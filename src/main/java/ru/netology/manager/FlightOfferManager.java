@@ -1,11 +1,11 @@
 package ru.netology.manager;
 
 import lombok.AllArgsConstructor;
+import ru.netology.comporator.Comporator;
 import ru.netology.domain.FlightOffer;
 import ru.netology.repository.FlightOfferRepository;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 @AllArgsConstructor
 public class FlightOfferManager {
@@ -15,8 +15,9 @@ public class FlightOfferManager {
     public FlightOfferManager() {
 
     }
-//Метод ищит билеты по полям ARRIVAL и DEPARTURE, и дополнительно в конце сортирует по увеличению
-    public FlightOffer[] searchBy(String searchArrival, String searchDeparture) {
+
+    //Метод ищит билеты по полям ARRIVAL и DEPARTURE, и дополнительно в конце сортирует по увеличению
+    public FlightOffer[] searchBy(String searchArrival, String searchDeparture, Comporator<FlightOffer> comparator) {
         FlightOffer[] result = new FlightOffer[0];
         for (FlightOffer flightOffer : repository.findAll()) {
             if (flightOffer.matchesArrival(searchArrival) && flightOffer.matchesDeparture(searchDeparture)) {
@@ -26,17 +27,11 @@ public class FlightOfferManager {
                 result = tmpFlightOffer;
             }
         }
-        Arrays.sort(result);
+        Arrays.sort(result, comparator);
         return result;
     }
 
     public void flightAdd(FlightOffer ticket) {
         repository.save(ticket);
     }
-
-    public FlightOffer[] allFlight() {
-        return repository.findAll();
-    }
-
-
 }
