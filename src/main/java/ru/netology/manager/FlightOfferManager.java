@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import ru.netology.domain.FlightOffer;
 import ru.netology.repository.FlightOfferRepository;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 @AllArgsConstructor
 public class FlightOfferManager {
 
@@ -12,7 +15,7 @@ public class FlightOfferManager {
     public FlightOfferManager() {
 
     }
-
+//Метод ищит билеты по полям ARRIVAL и DEPARTURE, и дополнительно в конце сортирует по увеличению
     public FlightOffer[] searchBy(String searchArrival, String searchDeparture) {
         FlightOffer[] result = new FlightOffer[0];
         for (FlightOffer flightOffer : repository.findAll()) {
@@ -23,6 +26,7 @@ public class FlightOfferManager {
                 result = tmpFlightOffer;
             }
         }
+        Arrays.sort(result);
         return result;
     }
 
@@ -30,7 +34,9 @@ public class FlightOfferManager {
         repository.save(ticket);
     }
 
-    public FlightOffer[] allFlight(){
+    public FlightOffer[] allFlight() {
         return repository.findAll();
     }
+
+
 }
