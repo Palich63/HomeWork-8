@@ -1,7 +1,9 @@
 package ru.netology.manager;
 
 import lombok.AllArgsConstructor;
-import ru.netology.comporator.Comporator;
+import ru.netology.comporator.Comparator;
+import ru.netology.comporator.TimeFlightComparator;
+import ru.netology.comporator.TimeFlightComporator;
 import ru.netology.domain.FlightOffer;
 import ru.netology.repository.FlightOfferRepository;
 
@@ -17,7 +19,7 @@ public class FlightOfferManager {
     }
 
     //Метод ищит билеты по полям ARRIVAL и DEPARTURE, и дополнительно в конце сортирует по увеличению
-    public FlightOffer[] searchBy(String searchArrival, String searchDeparture, Comporator<FlightOffer> comparator) {
+    public FlightOffer[] searchBy(String searchArrival, String searchDeparture, Comparator<TimeFlightComparator> comparator) {
         FlightOffer[] result = new FlightOffer[0];
         for (FlightOffer flightOffer : repository.findAll()) {
             if (flightOffer.matchesArrival(searchArrival) && flightOffer.matchesDeparture(searchDeparture)) {
