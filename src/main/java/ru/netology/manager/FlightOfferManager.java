@@ -18,7 +18,7 @@ public class FlightOfferManager {
     }
 
     //Метод ищит билеты по полям ARRIVAL и DEPARTURE, и дополнительно в конце сортирует по увеличению
-    public FlightOffer[] searchBy(String searchArrival, String searchDeparture, Comparator<TimeFlightComparator> comparator) {
+    public FlightOffer[] searchBy(String searchArrival, String searchDeparture, Comparator<FlightOffer> comparator) {
         FlightOffer[] result = new FlightOffer[0];
         for (FlightOffer flightOffer : repository.findAll()) {
             if (flightOffer.matchesArrival(searchArrival) && flightOffer.matchesDeparture(searchDeparture)) {
