@@ -35,7 +35,7 @@ class FlightOfferManagerTest {
         flightOfferManager.flightAdd(ticket8);
 
         FlightOffer[] actual = new FlightOffer[]{ticket8, ticket1, ticket5, ticket6};
-        FlightOffer[] expected = flightOfferManager.searchBy("BRU", "SVO", (Comparator<TimeFlightComparator>) comparator);
+        FlightOffer[] expected = flightOfferManager.searchBy("BRU", "SVO", Comparator<TimeFlightComparator> comparator);
 
         assertArrayEquals(actual, expected);
     }
