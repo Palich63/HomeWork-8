@@ -2,7 +2,6 @@ package ru.netology.manager;
 
 import org.junit.jupiter.api.Test;
 import ru.netology.comporator.TimeFlightComparator;
-import ru.netology.comporator.TimeFlightComporator;
 import ru.netology.domain.FlightOffer;
 
 import java.util.Comparator;
@@ -12,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class FlightOfferManagerTest {
 
     private FlightOfferManager flightOfferManager = new FlightOfferManager();
-//    private Comparator<TimeFlightComparator> Comparator;
+    private Comparator<TimeFlightComparator> comparator;
 
     private FlightOffer ticket1 = new FlightOffer(1, 4530, "BRU", "SVO", 315);
     private FlightOffer ticket2 = new FlightOffer(2, 6540, "BRU", "MAD", 124);
@@ -37,7 +36,7 @@ class FlightOfferManagerTest {
         flightOfferManager.flightAdd(ticket8);
 
         FlightOffer[] actual = new FlightOffer[]{ticket8, ticket1, ticket5, ticket6};
-        FlightOffer[] expected = flightOfferManager.searchBy("BRU", "SVO", Comparator<TimeFlightComparator> Comparator);
+        FlightOffer[] expected = flightOfferManager.searchBy("BRU", "SVO", Comparator < TimeFlightComparator >);
 
         assertArrayEquals(actual, expected);
     }

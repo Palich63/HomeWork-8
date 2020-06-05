@@ -1,7 +1,6 @@
 package ru.netology.manager;
 
 import lombok.AllArgsConstructor;
-import ru.netology.comporator.TimeFlightComparator;
 import ru.netology.domain.FlightOffer;
 import ru.netology.repository.FlightOfferRepository;
 
