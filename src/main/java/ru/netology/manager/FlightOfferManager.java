@@ -1,13 +1,12 @@
 package ru.netology.manager;
 
 import lombok.AllArgsConstructor;
-import ru.netology.comporator.Comparator;
 import ru.netology.comporator.TimeFlightComparator;
-import ru.netology.comporator.TimeFlightComporator;
 import ru.netology.domain.FlightOffer;
 import ru.netology.repository.FlightOfferRepository;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 @AllArgsConstructor
 public class FlightOfferManager {

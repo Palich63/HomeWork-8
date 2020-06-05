@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 class FlightOfferManagerTest {
 
     private FlightOfferManager flightOfferManager = new FlightOfferManager();
+//    private Comparator<TimeFlightComparator> Comparator;
 
     private FlightOffer ticket1 = new FlightOffer(1, 4530, "BRU", "SVO", 315);
     private FlightOffer ticket2 = new FlightOffer(2, 6540, "BRU", "MAD", 124);
@@ -22,6 +23,7 @@ class FlightOfferManagerTest {
     private FlightOffer ticket7 = new FlightOffer(7, 3441, "MLA", "BUD", 90);
     private FlightOffer ticket8 = new FlightOffer(8, 2560, "BRU", "SVO", 211);
     private FlightOffer ticket9 = new FlightOffer(9, 27776, "BRU", "SVO", 211);
+
 
     @Test
     void shouldSearchFlightFastest() {
@@ -35,7 +37,7 @@ class FlightOfferManagerTest {
         flightOfferManager.flightAdd(ticket8);
 
         FlightOffer[] actual = new FlightOffer[]{ticket8, ticket1, ticket5, ticket6};
-        FlightOffer[] expected = flightOfferManager.searchBy("BRU", "SVO", Comparator<TimeFlightComparator> comparator);
+        FlightOffer[] expected = flightOfferManager.searchBy("BRU", "SVO", Comparator<TimeFlightComparator> Comparator);
 
         assertArrayEquals(actual, expected);
     }
